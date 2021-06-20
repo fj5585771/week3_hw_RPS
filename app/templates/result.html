@@ -4,11 +4,17 @@
 
 <section>
     <div>
-        <p> First shot!</p>
-        <p> player1 picked : {{ choice1 }}</p><br>
-        <p><b>The winner is: {{ result }}</b> </p><br>
-        <p> player2 picked : {{ choice2 }}</p><br>
+        <p> The result is:</p>
+        <p> {{ player_1.name }} picked : {{ player_1.choice }}</p><br>
+        <p> {{ player_2.name }} picked : {{ player_2.choice }}</p><br>
+    </div>
+    <div>
+        {% if winner != None %}
+        <p><b>The winner is: {{ winner.name }} with {{ winner.choice }}</b> </p><br>
+        {% else %}
+        <p>its a draw!</p>
+        {% endif %}
+       
     </div>
 </section>
-
 {% endblock %}

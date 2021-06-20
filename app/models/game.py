@@ -1,19 +1,27 @@
 from app.models.player import *
 
-class Game():
-    def __init__(self, player_1, player_2):
-        self.player_1 = player_1
-        self.player_2 = player_2
+class Game:
+
+    def __init__(self):
+        self.win_lookup = {
+            "scissors": "paper",
+            "rock" : "scissors",
+            "paper" : "rock"
+        }
+
+    # Constructor not needed
 
     # write a function that takes in 2 players and compares their choices and returns the winning player.  if a draw the player should be None type
 
-    def play_game(self):
-        if (self.player_1.choice == "rock" and self.player_2.choice == "paper") or (self.player_1.choice == "paper" and self.player_2.choice == "scissors") or (self.player_1.choice == "scissors" and self.player_2.choice == "rock"):
-            return f"{self.player_2.name} wins!"
+    def play_game(self, player_1, player_2):
+        choice1 = player_1.choice.lower()
+        choice2 = player_2.choice.lower()
 
-        elif self.player_1.choice == self.player_2.choice:
-            draw = None
-            return "Its a draw!"     
+        winner = None
+        
+        if self.win_lookup.get(choice1) == choice2:
+            winner = player_1
+        elif self.win_lookup.get(choice2) == choice1:
+            winner = player_2
 
-        else:
-            return f"{self.player_1.name} wins!"
+        return winner

@@ -3,10 +3,15 @@
 {% block content %}
     <h1>Let's Play</h1>
     <!-- for every player object in players list, action the method called from data module      -->
-    <div>
-        <p>
-            <b>Player 1, enter your choice of rock, paper or scissors in the URL tab...</b>
-        </p>
-    </div>
+    <section>
+        <div>
+            <!-- <p> and the winner is!</p> -->
+            <p> player1 picked : {{ choice1 }}</p><br>
+            
+            <p> player2 picked : {{ choice2 }}</p><br>
+
+            <p><b>The winner is: {{ result }}</b> </p><br>
+        </div>
+    </section>
     
 {% endblock %}
